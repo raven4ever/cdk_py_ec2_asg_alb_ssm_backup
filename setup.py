@@ -1,45 +1,38 @@
 import setuptools
 
-
 with open("README.md") as fp:
     long_description = fp.read()
 
-
 setuptools.setup(
-    name="cdk_py_as_alb_ssm",
+    name="ec2_asg_alb_backup",
     version="0.0.1",
 
-    description="An empty CDK Python app",
+    description="Deploy EC2 AutoScaling Group managed by SSM with Backup enabled",
     long_description=long_description,
     long_description_content_type="text/markdown",
 
-    author="author",
+    author="raven4ever",
 
-    package_dir={"": "cdk_py_as_alb_ssm"},
-    packages=setuptools.find_packages(where="cdk_py_as_alb_ssm"),
+    package_dir={"": "stacks"},
+    packages=setuptools.find_packages(where="stacks"),
 
     install_requires=[
-        "aws-cdk.core==1.61.1",
+        "aws-cdk.core",
+        "aws-cdk.aws-iam",
+        "aws-cdk.aws-ec2",
+        "aws-cdk.aws-elasticloadbalancingv2",
+        "aws-cdk.aws-autoscaling",
+        "aws-cdk.aws-backup",
+        "aws-cdk.aws-kms"
     ],
 
-    python_requires=">=3.6",
+    python_requires=">=3.7",
 
     classifiers=[
-        "Development Status :: 4 - Beta",
+        "Development Status :: Finished",
 
         "Intended Audience :: Developers",
 
-        "License :: OSI Approved :: Apache Software License",
-
-        "Programming Language :: JavaScript",
-        "Programming Language :: Python :: 3 :: Only",
-        "Programming Language :: Python :: 3.6",
-        "Programming Language :: Python :: 3.7",
-        "Programming Language :: Python :: 3.8",
-
-        "Topic :: Software Development :: Code Generators",
-        "Topic :: Utilities",
-
-        "Typing :: Typed",
+        "Programming Language :: Python :: 3.8"
     ],
 )
